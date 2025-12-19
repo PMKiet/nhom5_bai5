@@ -1,0 +1,15 @@
+.wrapper {
+    width: 1200px;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+}
+
+.nav {
+    width: 24rem;
+    height: 100vh;
+    background-color: var(--bg-nav);
+    color: var(--text-color-primary);
+    font-size: var(--text-14);
+    font-weight: 600;
+}

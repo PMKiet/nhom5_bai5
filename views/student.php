@@ -1,3 +1,3 @@
-<?php 
-    echo "in teacher page"
-?>
+ <div>
+     hi
+ </div>

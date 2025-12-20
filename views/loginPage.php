@@ -13,7 +13,7 @@
         <form method="POST" action="../controllers/loginController.php">
             <h2>Đăng nhập</h2>
             <input type="text" name="username" autocomplete="off" require placeholder="Tên đăng nhập">
-            <input type="password" name="password" autocomplete="off" require placeholder="Mật khẩu">
+            <input type="text" name="password" autocomplete="off" require placeholder="Mật khẩu">
             <button type="submit" class="btn">
                 Đăng nhập
             </button>
@@ -22,6 +22,13 @@
             <p>
                 <strong>Dữ liệu vừa gửi:</strong>
                 Username: <?= htmlspecialchars($username) ?>
+            </p>
+        <?php endif; ?>
+
+        <?php if (!empty($username)) : ?>
+            <p>
+                <strong>Dữ liệu vừa gửi:</strong>
+            <pre><?php print_r($user['mat_khau']); ?></pre>
             </p>
         <?php endif; ?>
 

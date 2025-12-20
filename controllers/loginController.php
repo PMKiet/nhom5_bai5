@@ -2,17 +2,26 @@
 session_start();
 
 require __DIR__ . '../../config/base_url.php';
+require __DIR__ . '../../models/userModel.php';
+require __DIR__ . '../../config/connect.php';
 
 $username = '';
 $password = '';
 $error = '';
+$userModel = '';
+$user = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //lấy username và pass từ method post
-    $username = $_POST['username'] ?? 'admin';
-    $password = $_POST['passwrod'] ?? '';
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-    if ($username === 'admin') {
+    $userModel = new UserModel($conn);
+
+    $user = $userModel->findUserByUsername($username);
+
+
+    if ($username === $user['ten_tai_khoan'] && $password === $user['mat_khau']) {
         $_SESSION['username'] = $username; // dùng để lưu đăng nhập
         header('location: ' . BASE_URL . '/');
     } else {

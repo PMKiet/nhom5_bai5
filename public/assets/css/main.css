@@ -9,3 +9,9 @@
 
 /* nav side */
 @import url("./nav.css");
+
+/* login */
+@import url("./login.css");
+
+/* các component sẵn  */
+@import url("./components/button.css");

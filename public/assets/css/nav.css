@@ -1,3 +1,9 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .nav-top {
     display: flex;
     flex-direction: column;
@@ -19,7 +25,7 @@
     gap: 1.6rem;
 }
 
-.nav ul li:hover {
+.nav ul li:hover, .logout:hover {
     background-color: var(--bg-hover);
     cursor: pointer;
 }
@@ -27,4 +33,15 @@
 .nav ul li a {
     color: var(--text-color-primary);
     text-decoration: none;
+}
+
+.form-login {
+    width: 300px;
+    background: red;
+}
+
+.logout {
+    padding: 1.2rem 4rem;
+    text-align: center;
+    border-top: 1px solid #BDBDBD;
 }

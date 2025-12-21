@@ -10,33 +10,18 @@
 
 <body>
     <div class="form-login">
-        <form method="POST" action="../controllers/loginController.php">
+        <form method="POST" action="../controllers/loginController.php" class="form">
             <h2>Đăng nhập</h2>
-            <input type="text" name="username" autocomplete="off" require placeholder="Tên đăng nhập">
-            <input type="text" name="password" autocomplete="off" require placeholder="Mật khẩu">
-            <button type="submit" class="btn">
+            <input id="username" type="text" name="username" autocomplete="off" require placeholder="Tên đăng nhập">
+            <input id="password" type="text" name="password" autocomplete="off" require placeholder="Mật khẩu">
+            <button type="submit" class="btn ">
                 Đăng nhập
             </button>
         </form>
-        <?php if (!empty($username)) : ?>
-            <p>
-                <strong>Dữ liệu vừa gửi:</strong>
-                Username: <?= htmlspecialchars($username) ?>
-            </p>
-        <?php endif; ?>
 
-        <?php if (!empty($username)) : ?>
-            <p>
-                <strong>Dữ liệu vừa gửi:</strong>
-            <pre><?php print_r($user['mat_khau']); ?></pre>
-            </p>
-        <?php endif; ?>
-
-        <?php if (!empty($error)) : ?>
-            <p style="color:red"><?= $error ?></p>
-        <?php endif; ?>
-
+        <p class="msg-error <?= empty($error) ? 'hidden' : '' ?>"><?= $error ?></p>
     </div>
+    <script src="../public/assets/js/validateFormLogin.js"></script>
 </body>
 
 </html>

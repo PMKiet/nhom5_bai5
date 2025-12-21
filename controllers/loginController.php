@@ -11,21 +11,32 @@ $error = '';
 $userModel = '';
 $user = null;
 
+$pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');
+if ($pageRefreshed == 1) {
+    header('location: ' . BASE_URL . '/views/login');
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //lấy username và pass từ method post
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    $userModel = new UserModel($conn);
+    if ($username !== "" && $password !== "") {
+        $userModel = new UserModel($conn);
+        $user = $userModel->findUserByUsername($username);
 
-    $user = $userModel->findUserByUsername($username);
-
-
-    if ($username === $user['ten_tai_khoan'] && $password === $user['mat_khau']) {
-        $_SESSION['username'] = $username; // dùng để lưu đăng nhập
-        header('location: ' . BASE_URL . '/');
+        if ($user !== null) {
+            if ($username === $user['ten_tai_khoan'] && $password === $user['mat_khau']) {
+                $_SESSION['username'] = $username; // dùng để lưu đăng nhập
+                header('location: ' . BASE_URL . '/');
+            } else {
+                $error = 'Tài khoản hoặc mật khẩu không đúng';
+            }
+        } else {
+            $error = 'Tài khoản hoặc mật khẩu không đúng';
+        }
     } else {
-        $error = 'Tài khoản hoặc mật khẩu không đúng';
+        $error = 'Tài khoản và mật khẩu không được bỏ trống';
     }
 }
 

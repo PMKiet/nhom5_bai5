@@ -15,3 +15,12 @@
     outline: none;
     margin-top: 10px;
 }
+.msg-error {
+    height: 40px;
+    background: #ff9a9a;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 800;
+}

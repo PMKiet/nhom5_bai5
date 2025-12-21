@@ -15,3 +15,10 @@
 
 /* các component sẵn  */
 @import url("./components/button.css");
+
+/* student */
+@import url("./student.css");
+
+.hidden {
+    display: none;
+}

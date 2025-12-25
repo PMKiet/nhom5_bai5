@@ -16,7 +16,7 @@
 /* các component sẵn  */
 @import url("./components/button.css");
 @import url("./components/input.css");
-
+@import url("./components/popupForm.css");
 
 /* student */
 @import url("./student.css");

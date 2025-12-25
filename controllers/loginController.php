@@ -42,5 +42,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Tài khoản và mật khẩu không được bỏ trống';
     }
 }
-
 require __DIR__ . '/../views/loginPage.php';

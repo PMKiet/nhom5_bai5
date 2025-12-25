@@ -1,3 +1,15 @@
+<?php
+// Include popup.php để popup có thể hoạt động trong file này
+// include './views/popupForm.php';
+?>
+
+<?php
+require __DIR__ . '../../controllers/StudentController.php';
+require __DIR__ . '/../config/connect.php';
+$controller = new StudentController($conn);
+$listStudent = $controller->listUserAction();
+?>
+
 <div>
     <div class="student-header">
         <div class="student-top">
@@ -9,7 +21,6 @@
             <button class="btn search-student">Tìm</button>
         </div>
     </div>
-
     <section class="student-content">
         <table cellpacing='0'>
             <thead>
@@ -18,61 +29,58 @@
                     <th>Tên sinh viên</th>
                     <th>Lớp</th>
                     <th>Địa chỉ</th>
-                    <th>Giới tính</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>SV250001</th>
-                    <th>Tên sinh viên 1</th>
-                    <th>Tên lớp 1</th>
-                    <th>Chợ mới, An Giang</th>
-                    <th>Nam</th>
-                    <th>
-                        <span class="th-icon th-icon-view" onclick="openPopup()">Xem</span>
-                        <span class=" th-icon th-icon-edit">Sửa</span>
-                        <span class="th-icon th-icon-delete">Xóa</span>
-                    </th>
-                </tr>
-                <tr>
-                    <th>SV250001</th>
-                    <th>Tên sinh viên 1</th>
-                    <th>Tên lớp 1</th>
-                    <th>Chợ mới, An Giang</th>
-                    <th>Nam</th>
-                    <th>
-                        <span class="th-icon th-icon-view">Xem</span>
-                        <span class="th-icon th-icon-edit">Sửa</span>
-                        <span class="th-icon th-icon-delete">Xóa</span>
-                    </th>
-                </tr>
-                <tr>
-                    <th>SV250001</th>
-                    <th>Tên sinh viên 1</th>
-                    <th>Tên lớp 1</th>
-                    <th>Chợ mới, An Giang</th>
-                    <th>Nam</th>
-                    <th>
-                        <span class="th-icon th-icon-view">Xem</span>
-                        <span class="th-icon th-icon-edit">Sửa</span>
-                        <span class="th-icon th-icon-delete">Xóa</span>
-                    </th>
-                </tr>
+                <?php foreach ($listStudent as $row) { ?>
+                    <tr>
+                        <th><?php echo $row['ma_sinh_vien'] ?></th>
+                        <th><?php echo $row['ten_sinh_vien'] ?></th>
+                        <th><?php echo $row['f_ma_lop_hoc'] ?></th>
+                        <th><?php echo $row['dia_chi'] ?></th>
+                        <th>
+
+                            <span class="th-icon th-icon-view"
+                                onclick="openForm('<?php echo $row['ma_sinh_vien'] ?>'
+                                                                                    , '<?php echo $row['ten_sinh_vien'] ?>'
+                                                                                    , '<?php echo $row['f_ma_lop_hoc'] ?>'
+                                                                                    , '<?php echo $row['dia_chi'] ?>')">
+                                Xem</span>
+                            <span class="th-icon th-icon-edit"
+                                onclick="openFormEdit('<?php echo $row['ma_sinh_vien'] ?>'
+                                                        ,'<?php echo $row['ten_sinh_vien'] ?>'
+                                                        , '<?php echo $row['dia_chi'] ?>')">
+                                Sửa</span>
+                            <span class="th-icon th-icon-delete">Xóa</span>
+                        </th>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </section>
 </div>
 
-<div id="popupContainer"></div>
+<div id="popupForm-view" class="modal">
+    <div class="modal-content">
+        <h3>Xem sinh viên</h3>
+        <p>Mã sinh viên: <strong id="student-id"></strong></p>
+        <p>Tên sinh viên: <strong id="student-name"></strong></p>
+        <p>Địa chỉ: <strong id="student-address"></strong></p>
+        <p>Mã lớp: <strong id="student-class-id"></strong></p>
+        <button type="button" onclick="closePopup()">Đóng</button>
+    </div>
+</div>
 
-<script>
-    function openPopup() {
-        fetch("popupForm.php")
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById("popupContainer").innerHTML = html;
-                document.getElementById("popupForm").style.display = "block";
-            });
-    }
-</script>
+<form method="POST" action="../controllers/updateStudent.php" id="popupForm-edit" class="modal">
+    <div class="modal-content">
+        <h3>Sửa sinh viên</h3>
+        <p>Mã sinh viên: <input id="student-id-edit" name="student-id-edit" /></p>
+        <p>Tên sinh viên: <input id="student-name-edit" name="student-name-edit" /></p>
+        <p>Địa chỉ: <input id="student-address-edit" name="student-address-edit" /></p>
+        <button type="submit" class="btn">Cập nhật</button>
+        <button type="button" onclick="closePopupEdit()">Đóng</button>
+    </div>
+</form>
+
+<script src="../public/assets/js/popupForm.js"></script>

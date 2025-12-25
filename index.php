@@ -19,6 +19,15 @@ switch ($finalPath) {
     case '/views/login':
         $content = __DIR__ . '/views/student.php';
         break;
+    case '/views/class':
+        $content = __DIR__ . '/views/class.php';
+        break;
+    case '/views/course':
+        $content = __DIR__ . '/views/course.php';
+        break;
+    case '/views/assignment':
+        $content = __DIR__ . '/views/assignment.php';
+        break;
 }
 
 ?>

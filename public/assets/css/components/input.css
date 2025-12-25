@@ -1,0 +1,25 @@
+.inp {
+    height: 5rem;
+    width: 100%;
+    background-color: #FCFAFA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.inp input {
+    padding: 5px 10px;
+    outline: none;
+    background-color: #FCFAFA;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+.inp img {
+    width: 1.6rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    margin: 0 2rem;
+}

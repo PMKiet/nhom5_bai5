@@ -28,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user !== null) {
             if ($username === $user['ten_tai_khoan'] && $password === $user['mat_khau']) {
                 $_SESSION['username'] = $username; // dùng để lưu đăng nhập
+                $role = $userModel->getRoleByUser($user);
+
+                $_SESSION['role'] = $role['ten_quyen'];
                 header('location: ' . BASE_URL . '/');
             } else {
                 $error = 'Tài khoản hoặc mật khẩu không đúng';

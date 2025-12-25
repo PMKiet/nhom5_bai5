@@ -1,0 +1,51 @@
+.student-header {
+    width: 100%;
+}
+
+.search-student {
+    margin: 0 !important;
+    height: 100%;
+}
+
+.student-content table {
+    width: 100%;
+}
+
+.student-content table, th, td {
+    padding: 1rem;
+    border-collapse: collapse;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #EBF6FF;
+}
+
+tr:hover {
+    background-color: #bedff9;
+}
+
+tbody tr:nth-child(even):hover {
+    background-color: #bedff9;
+}
+
+.th-icon {
+    display: inline-block;
+    color: var(--text-color-primary);
+    padding: .5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.th-icon:hover {
+    outline: .5px solid gray;
+}
+
+.th-icon-view {
+    background-color: green;
+}
+.th-icon-edit {
+    background-color: #bdbd02;
+}
+.th-icon-delete {
+    background-color: red;
+}

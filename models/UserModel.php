@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/connect.php';
 // session_start();
 class UserModel
 {
@@ -7,9 +8,9 @@ class UserModel
     private $user = null;
     private $role;
 
-    public function __construct($conn)
+    public function __construct()
     {
-        $this->conn = $conn;
+        $this->conn = connectDB();
     }
 
     public function findUserByUsername($username)

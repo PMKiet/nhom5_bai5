@@ -10,7 +10,8 @@ $role = $_SESSION['role'];
                 <span>Nhóm 5</span>
             </div>
             <ul>
-                <?php if ($role == 'admin' || $role == 'student'): ?>
+                <!-- chỉ admin mới xem -->
+                <?php if ($role == 'admin'): ?>
                     <li>
                         <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
                         <a href="<?= BASE_URL ?>/views/student">
@@ -19,7 +20,8 @@ $role = $_SESSION['role'];
                     </li>
                 <?php endif ?>
 
-                <?php if ($role == 'admin' || $role == 'teacher'): ?>
+                <!-- chỉ admin mới xem -->
+                <?php if ($role == 'admin'): ?>
                     <li>
                         <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
                         <a href="<?= BASE_URL ?>/views/teacher">

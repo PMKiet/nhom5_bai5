@@ -19,7 +19,7 @@ function openForm(maSinhVien, tenSinhVien, maLop, diaChi) {
     //chèn dữ liệu
     document.getElementById("student-id").textContent = maSinhVien;
     document.getElementById("student-name").textContent = tenSinhVien;
-    document.getElementById("student-class-id").textContent = maLop;
+    document.getElementById("student-class-id").textContent = maLop != '' ? maLop : "Không có";
     document.getElementById("student-address").textContent = diaChi;
 }
 

@@ -12,6 +12,7 @@ class StudentModel
         $this->conn  = connectDB();
     }
 
+    //=========
     public function getAllStudent()
     {
 
@@ -22,6 +23,7 @@ class StudentModel
         return $this->listStudent;
     }
 
+    //=========
     public function updateStudent($studentId, $studentName, $studentAddress)
     {
         $queryUpdate = "UPDATE SinhVien SET ten_sinh_vien = '$studentName', dia_chi = '$studentAddress' WHERE ma_sinh_vien = '$studentId'";
@@ -29,6 +31,7 @@ class StudentModel
         return $this->result = $this->conn->query($queryUpdate);
     }
 
+    //=========
     public function deleteStudent($studentId)
     {
         $queryDelete = "DELETE FROM sinhvien WHERE ma_sinh_vien = '$studentId'";
@@ -36,6 +39,7 @@ class StudentModel
         return $this->result = $this->conn->query($queryDelete);
     }
 
+    //=========
     public function addStudent($studentName, $studentAddress, $studentBirh)
     {
         $randomId = rand(1, 9999);
@@ -45,14 +49,4 @@ class StudentModel
         echo $queryDelete;
         return $this->result = $this->conn->query($queryDelete);
     }
-
-    // public function searchStudent($studentName)
-    // {
-    //     $randomId = rand(1, 9999);
-    //     $autoFillZero = str_pad($randomId, 4, 0, STR_PAD_LEFT); //tự động thêm 0 cho đủ 4 số
-    //     $id = "SV" . date("y") . $autoFillZero; // date("y") lấy 2 số cuối của năm
-    //     $querySearch =  "";
-    //     echo $queryDelete;
-    //     return $this->result = $this->conn->query($queryDelete);
-    // }
 }

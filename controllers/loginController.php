@@ -3,7 +3,6 @@ session_start();
 
 require __DIR__ . '../../config/base_url.php';
 require __DIR__ . '../../models/userModel.php';
-require __DIR__ . '../../config/connect.php';
 
 $username = '';
 $password = '';
@@ -11,18 +10,19 @@ $error = '';
 $userModel = '';
 $user = null;
 
-$pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');
-if ($pageRefreshed == 1) {
-    header('location: ' . BASE_URL . '/views/login');
-}
+// $pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');
+// if ($pageRefreshed == 1) {
+//     header('location: ' . BASE_URL . '/views/login');
+// }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // echo 123;
     //lấy username và pass từ method post
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
     if ($username !== "" && $password !== "") {
-        $userModel = new UserModel($conn);
+        $userModel = new UserModel();
         $user = $userModel->findUserByUsername($username);
 
         if ($user !== null) {

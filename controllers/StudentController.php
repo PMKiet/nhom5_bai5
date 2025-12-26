@@ -11,7 +11,7 @@ function listUserAction()
 
 function updateStudent()
 {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         //lấy username và pass từ method post
         $id = $_POST['student-id-edit'] ?? '';
         $name = $_POST['student-name-edit'] ?? '';
@@ -28,21 +28,21 @@ function updateStudent()
     }
 }
 
+function deleteStudent()
+{
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['student-id-delete'];
+
+        $studentModel = new StudentModel();
+        $studentModel->deleteStudent($id);
+        header('location: ' . BASE_URL . '/views/student');
+    }
+}
+
 if (isset($_POST['action']) && $_POST['action'] == 'update') {
     updateStudent();
 }
-// class StudentController
-// {
-//     private $studentModel;
-//     function __construct($conn)
-//     {
-//         $this->studentModel = new StudentModel($conn);
-//     }
 
-//     function listUserAction()
-//     {
-//         $listStudent = $this->studentModel->getAllStudent();
-//         return $listStudent;
-//         // require_once 'views/student.php';
-//     }
-// }
+if (isset($_POST['action']) && $_POST['action'] == 'delete') {
+    deleteStudent();
+}

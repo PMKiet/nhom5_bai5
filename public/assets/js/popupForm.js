@@ -1,5 +1,13 @@
 function closePopup() {
-    document.getElementById("popupForm-view").style.display = "none";
+    if(document.getElementById("popupForm-view")) {
+        document.getElementById("popupForm-view").style.display = "none"; 
+    }
+    if(document.getElementById("popupForm-edit")) { 
+    document.getElementById("popupForm-edit").style.display = "none"; 
+    }
+    if(document.getElementById("popupForm-delete")) { 
+    document.getElementById("popupForm-delete").style.display = "none";
+    }
 }
 
 function openForm(maSinhVien, tenSinhVien, maLop, diaChi) {
@@ -21,24 +29,12 @@ function openFormEdit(id, tenSinhVien, diaChi) {
 
     document.getElementById("student-id-edit").value = id; 
     document.getElementById("student-name-edit").value = tenSinhVien; 
-    document.getElementById("student-address-edit").value = diaChi;
+    document.getElementById("student-address-edit").value = diaChi; 
 }
 
-function updateStudent() {
-    let id = document.getElementById("student-id-edit").value; 
-    let username = document.getElementById("student-name-edit").value; 
-    let address = document.getElementById("student-address-edit").value;
-    
-    
+function openFormDelete(id, tenSinhVien) {
+    document.getElementById("popupForm-delete").style.display = "block";
 
-    // fetch("updateStudent.php", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //     body: `id=${id}&name=${name}&class=${className}&address=${address}`
-    // })
-    // .then(res => res.text())
-    // .then(msg => {
-    //     alert(msg);
-    //     location.reload(); // nếu bạn muốn tự reload sau update
-    // });
+    document.getElementById("student-id-delete").value = id; 
+    document.getElementById("student-name-delete").value = tenSinhVien;  
 }

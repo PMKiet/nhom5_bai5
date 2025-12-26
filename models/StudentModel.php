@@ -27,4 +27,11 @@ class StudentModel
         echo $queryUpdate;
         return $this->result = $this->conn->query($queryUpdate);
     }
+
+    public function deleteStudent($studentId)
+    {
+        $queryDelete = "DELETE FROM sinhvien WHERE ma_sinh_vien = '$studentId'";
+        echo $queryDelete;
+        return $this->result = $this->conn->query($queryDelete);
+    }
 }

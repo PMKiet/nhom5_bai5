@@ -39,10 +39,31 @@ function deleteStudent()
     }
 }
 
+function addStudent()
+{
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $birh = $_POST['student-birh-add'] ?? '';
+        $name = $_POST['student-name-add'] ?? '';
+        $address = $_POST['student-address-add'] ?? '';
+        if (!empty($birh) && !empty($name) && !empty($address)) {
+            $studentModel = new StudentModel();
+            $studentModel->addStudent($name, $address, $birh);
+            header('location: ' . BASE_URL . '/views/student');
+        } else {
+            echo 'thông tin rỗng';
+        }
+    }
+}
+
 if (isset($_POST['action']) && $_POST['action'] == 'update') {
     updateStudent();
 }
 
 if (isset($_POST['action']) && $_POST['action'] == 'delete') {
     deleteStudent();
+}
+
+
+if (isset($_POST['action']) && $_POST['action'] == 'add') {
+    addStudent();
 }

@@ -8,6 +8,9 @@ function closePopup() {
     if(document.getElementById("popupForm-delete")) { 
     document.getElementById("popupForm-delete").style.display = "none";
     }
+    if(document.getElementById("popupForm-add")) { 
+    document.getElementById("popupForm-add").style.display = "none";
+    }
 }
 
 function openForm(maSinhVien, tenSinhVien, maLop, diaChi) {
@@ -37,4 +40,10 @@ function openFormDelete(id, tenSinhVien) {
 
     document.getElementById("student-id-delete").value = id; 
     document.getElementById("student-name-delete").value = tenSinhVien;  
+}
+
+function openFormAdd() {
+    document.getElementById("popupForm-add").style.display = "block";
+
+    
 }

@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../config/connect.php';
 
 class StudentModel
 {
@@ -6,9 +7,9 @@ class StudentModel
     private $result;
     private $listStudent = null;
 
-    public function __construct($conn)
+    public function __construct()
     {
-        $this->conn = $conn;
+        $this->conn  = connectDB();
     }
 
     public function getAllStudent()
@@ -23,7 +24,7 @@ class StudentModel
     public function updateStudent($studentId, $studentName, $studentAddress)
     {
         $queryUpdate = "UPDATE SinhVien SET ten_sinh_vien = '$studentName', dia_chi = '$studentAddress' WHERE ma_sinh_vien = '$studentId'";
-
+        echo $queryUpdate;
         return $this->result = $this->conn->query($queryUpdate);
     }
 }

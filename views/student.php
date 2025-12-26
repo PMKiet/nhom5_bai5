@@ -5,9 +5,8 @@
 
 <?php
 require __DIR__ . '../../controllers/StudentController.php';
-require __DIR__ . '/../config/connect.php';
-$controller = new StudentController($conn);
-$listStudent = $controller->listUserAction();
+// $controller = geta;
+$listStudent = listUserAction();
 ?>
 
 <div>
@@ -72,10 +71,11 @@ $listStudent = $controller->listUserAction();
     </div>
 </div>
 
-<form method="POST" action="../controllers/updateStudent.php" id="popupForm-edit" class="modal">
+<form method="POST" action="../controllers/StudentController.php" id="popupForm-edit" class="modal">
+    <input type="hidden" name="action" value="update">
     <div class="modal-content">
         <h3>Sửa sinh viên</h3>
-        <p>Mã sinh viên: <input id="student-id-edit" name="student-id-edit" /></p>
+        <p>Mã sinh viên: <input id="student-id-edit" name="student-id-edit" readonly /></p>
         <p>Tên sinh viên: <input id="student-name-edit" name="student-name-edit" /></p>
         <p>Địa chỉ: <input id="student-address-edit" name="student-address-edit" /></p>
         <button type="submit" class="btn">Cập nhật</button>

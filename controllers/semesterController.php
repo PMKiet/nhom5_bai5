@@ -12,7 +12,7 @@ function listSemesterAction()
 function listIdAndNameSemesterAction()
 {
     $semesterModal = new SemesterModal();
-    $listIdAndNameSemester = $semesterModal->getAllSemester();
+    $listIdAndNameSemester = $semesterModal->getIdAndNameSemester();
     return $listIdAndNameSemester;
 }
 

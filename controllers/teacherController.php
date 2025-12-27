@@ -9,6 +9,13 @@ function listTeacherAction()
     return $listTeacher;
 }
 
+function listIdAndNameTeacherAction()
+{
+    $teacherModal = new TeacherModal();
+    $listIdAndNameTeacher = $teacherModal->getIdAndNameTeacher();
+    return $listIdAndNameTeacher;
+}
+
 function updateTeacherAction()
 {
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {

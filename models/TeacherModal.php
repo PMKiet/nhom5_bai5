@@ -6,6 +6,7 @@ class TeacherModal
     private $conn;
     private $result;
     private $listTeacher = null;
+    private $listIdAndNameTeacher = null;
 
     public function __construct()
     {
@@ -21,6 +22,15 @@ class TeacherModal
         $this->listTeacher = $this->result->fetch_all(MYSQLI_ASSOC); // lấy toàn bô user, fetch_assoc() chỉ lấy 1 dòng di nhất
 
         return $this->listTeacher;
+    }
+
+    public function getIdAndNameTeacher()
+    {
+        $queryGetIdClass = "SELECT ma_giao_vien, ten_giao_vien FROM GiaoVien";
+        $this->result = $this->conn->query($queryGetIdClass);
+        $this->listIdAndNameTeacher = $this->result->fetch_all(MYSQLI_ASSOC);
+
+        return $this->listIdAndNameTeacher;
     }
 
     //=========

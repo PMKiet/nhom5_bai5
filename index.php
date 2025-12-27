@@ -1,35 +1,70 @@
 <?php
 require_once __DIR__ . '/config/base_url.php';
+require __DIR__ . '/controllers/checkLogin.php';
 
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $finalPath = trim(str_replace(BASE_URL, "", $request));
-require __DIR__ . '/controllers/checkLogin.php';
 new checkLogin();
 $content = __DIR__ . '/views/teacher.php';
-
-
+$role = $_SESSION['role'];
 
 switch ($finalPath) {
     case '/views/teacher':
-        $content = __DIR__ . '/views/teacher.php';
+        if ($role === 'admin') {
+            $content = __DIR__ . '/views/teacher.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
         break;
     case '/views/student':
-        $content = __DIR__ . '/views/student.php';
-        break;
-    case '/views/login':
-        $content = __DIR__ . '/views/student.php';
+        if ($role === 'admin') {
+            $content = __DIR__ . '/views/student.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
         break;
     case '/views/class':
-        $content = __DIR__ . '/views/class.php';
+        if ($role === 'admin') {
+            $content = __DIR__ . '/views/class.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
         break;
     case '/views/course':
-        $content = __DIR__ . '/views/course.php';
+        if ($role === 'admin') {
+            $content = __DIR__ . '/views/course.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
         break;
     case '/views/assignment':
-        $content = __DIR__ . '/views/assignment.php';
+        if ($role === 'admin') {
+            $content = __DIR__ . '/views/assignment.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
         break;
     case '/views/semester':
-        $content = __DIR__ . '/views/semester.php';
+        if ($role === 'admin') {
+            $content = __DIR__ . '/views/semester.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
+
+        break;
+    case '/views/studentprofile':
+        if ($role === 'student') {
+            $content = __DIR__ . '/views/studentProfile.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
         break;
 }
 

@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['role'] = $role['ten_quyen'];
                 if ($role['ten_quyen'] === 'admin') {
                     header('location: ' . BASE_URL . '/views/student');
-                } else {
-                    header('location: ' . BASE_URL . '/');
+                } else if ($role['ten_quyen'] === 'student') {
+                    header('location: ' . BASE_URL . '/views/studentprofile');
                 }
             } else {
                 $error = 'Tài khoản hoặc mật khẩu không đúng';

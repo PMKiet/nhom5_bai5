@@ -20,6 +20,16 @@ $role = $_SESSION['role'];
                     </li>
                 <?php endif ?>
 
+                <!-- chỉ sinh vien mới xem -->
+                <?php if ($role == 'student'): ?>
+                    <li>
+                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <a href="<?= BASE_URL ?>/views/studentprofile">
+                            Học sinh
+                        </a>
+                    </li>
+                <?php endif ?>
+
                 <!-- chỉ admin mới xem -->
                 <?php if ($role == 'admin'): ?>
                     <li>
@@ -30,7 +40,7 @@ $role = $_SESSION['role'];
                     </li>
                 <?php endif ?>
 
-                <?php if ($role == 'admin' || $role == 'student'): ?>
+                <?php if ($role == 'admin'): ?>
                     <li>
                         <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
                         <a href="<?= BASE_URL ?>/views/class">

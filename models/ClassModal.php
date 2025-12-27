@@ -55,21 +55,13 @@ class ClassModal
     // }
 
     //=========
-    public function addClass($studentName, $studentAddress, $studentBirh)
+    public function addClass($classtName, $classTraining)
     {
         $randomId = rand(1, 9999);
         $autoFillZero = str_pad($randomId, 4, 0, STR_PAD_LEFT); //tự động thêm 0 cho đủ 4 số
-        $id = "SV" . date("y") . $autoFillZero; // date("y") lấy 2 số cuối của năm
-        $queryAdd = "INSERT INTO `sinhvien`(`ma_sinh_vien`,`ten_sinh_vien`, `ngay_sinh`, `dia_chi`) VALUES ('$id' ,'$studentName','$studentBirh','$studentAddress')";
+        $id = "LH" . date("y") . $autoFillZero; // date("y") lấy 2 số cuối của năm
+        $queryAdd = "INSERT INTO `LopHoc`(`ma_lop_hoc`,`ten_lop_hoc`, `he_dao_tao`) VALUES ('$id' ,'$classtName','$classTraining')";
 
-        $this->result = $this->conn->query($queryAdd);
-
-        if ($this->result === true) {
-            $idAccount = rand(1, 9999) . str_pad($randomId, 4, 0, STR_PAD_LEFT);
-            $queryCreateAccount = "INSERT INTO `TaiKhoan`(`ma_tai_khoan`,`ten_tai_khoan`, `mat_khau`,`f_ma_quyen`) VALUES ('$idAccount' ,'$id','123@', '3')";
-            $this->conn->query($queryCreateAccount);
-        }
-
-        return $this->result;
+        return $this->result = $this->conn->query($queryAdd);
     }
 }

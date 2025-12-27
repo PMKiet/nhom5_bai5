@@ -12,7 +12,7 @@ $listClass = listClassAction();
 <div>
     <div class="student-header">
         <div class="student-top">
-            <button class="btn" onclick="openFormAdd()">Thêm sinh viên</button>
+            <button class="btn" onclick="openFormAdd()">Thêm lớp</button>
         </div>
         <form method="GET" action="" class="studen-search inp">
             <img src="../public/assets/img/Vector.png" alt="">
@@ -28,7 +28,8 @@ $listClass = listClassAction();
             //lọc mảng 2 chiều theo từ khóa
             if (!empty($keyword)) {
                 $filter = array_filter($listClass, function ($class) use ($keyword) {
-                    return ($class['ten_lop_hoc'] == $keyword);
+                    // return ($class['ten_lop_hoc'] == $keyword);
+                    return (strstr($class['ten_lop_hoc'], $keyword));
                 });
             }
         }
@@ -112,18 +113,17 @@ $listClass = listClassAction();
 </form> -->
 
 <!-- form theem sinh vieen -->
-<!-- <form method="POST" action="../controllers/StudentController.php" id="popupForm-add" class="modal">
+<form method="POST" action="../controllers/classController.php" id="popupForm-add" class="modal">
     <input type="hidden" name="action" value="add">
     <div class="modal-content">
-        <h3>Thêm sinh viên</h3>
+        <h3>Thêm lớp</h3>
 
-        <p><span>Tên sinh viên:</span> <input class="input-form" id="student-name-add" name="student-name-add" require /></p>
-        <p><span>Địa chỉ:</span> <input class="input-form" id="student-address-add" name="student-address-add" require /></p>
-        <p><span>Ngày sinh:</span> <input class="input-form" type="date" id="student-birh-add" name="student-birh-add" require /></p>
+        <p><span>Tên lớp:</span> <input class="input-form" id="class-name-add" name="class-name-add" require /></p>
+        <p><span>Hệ đào đạo:</span> <input class="input-form" id="class-training-add" name="class-training-add" require /></p>
 
-        <button type="submit" class="btn add-student">Xác nhận thêm</button>
+        <button type="submit" class="btn add-class">Xác nhận thêm</button>
         <button type="button" class="btn close" onclick="closePopup()">Đóng</button>
     </div>
-</form> -->
+</form>
 
 <script src="../public/assets/js/popupFormClass.js"></script>

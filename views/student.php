@@ -30,7 +30,7 @@ $listIdClass = listIdClassAction();
             //lọc mảng 2 chiều theo từ khóa
             if (!empty($keyword)) {
                 $filter = array_filter($listStudent, function ($student) use ($keyword) {
-                    return ($student['ten_sinh_vien'] == $keyword);
+                    return (strstr($student['ten_sinh_vien'], $keyword));
                 });
             }
         }
@@ -125,9 +125,9 @@ $listIdClass = listIdClassAction();
 <form method="POST" action="../controllers/StudentController.php" id="popupForm-delete" class="modal">
     <input type="hidden" name="action" value="delete">
     <div class="modal-content">
-        <h3>Sửa sinh viên</h3>
+        <h3>Xóa sinh viên</h3>
         <p><span>Mã sinh viên:</span> <input id="student-id-delete" name="student-id-delete" readonly /></p>
-        <p><span>Tên sinh viên:</span><input id="student-name-delete" name="student-name-delete" /></p>
+        <p><span>Tên sinh viên:</span><input id="student-name-delete" name="student-name-delete" readonly /></p>
         <button type="submit" class="btn" style="background-color: red;">Xác nhận xóa</button>
         <button type="button" class="btn close" style="background-color: var(--bg-btn);" onclick="closePopup()">Đóng</button>
     </div>

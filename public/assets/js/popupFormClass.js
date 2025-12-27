@@ -8,9 +8,9 @@ function closePopup() {
     // if(document.getElementById("popupForm-delete")) { 
     // document.getElementById("popupForm-delete").style.display = "none";
     // }
-    // if(document.getElementById("popupForm-add")) { 
-    // document.getElementById("popupForm-add").style.display = "none";
-    // }
+    if(document.getElementById("popupForm-add")) { 
+    document.getElementById("popupForm-add").style.display = "none";
+    }
 }
 
 function openForm(maLop, tenLop, heDaoTao) {
@@ -40,11 +40,11 @@ function openFormEdit(id, tenLopHoc) {
 //     document.getElementById("student-name-delete").value = tenSinhVien;  
 // }
 
-// function openFormAdd() {
-//     document.getElementById("popupForm-add").style.display = "block";
+function openFormAdd() {
+    document.getElementById("popupForm-add").style.display = "block";
 
     
-// }
+}
 
 
 // ==================================================================================

@@ -45,21 +45,20 @@ function updateClass()
 //     }
 // }
 
-// function addStudent()
-// {
-//     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-//         $birh = $_POST['student-birh-add'] ?? '';
-//         $name = $_POST['student-name-add'] ?? '';
-//         $address = $_POST['student-address-add'] ?? '';
-//         if (!empty($birh) && !empty($name) && !empty($address)) {
-//             $studentModel = new StudentModel();
-//             $studentModel->addStudent($name, $address, $birh);
-//             header('location: ' . BASE_URL . '/views/student');
-//         } else {
-//             echo 'thông tin rỗng';
-//         }
-//     }
-// }
+function addClassAction()
+{
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['class-name-add'] ?? '';
+        $training = $_POST['class-training-add'] ?? '';
+        if (!empty($name) && !empty($training)) {
+            $classModal = new ClassModal();
+            $classModal->addClass($name, $training);
+            header('location: ' . BASE_URL . '/views/class');
+        } else {
+            echo 'thông tin rỗng';
+        }
+    }
+}
 
 if (isset($_POST['action']) && $_POST['action'] == 'update') {
     updateClass();
@@ -70,6 +69,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'update') {
 // }
 
 
-// if (isset($_POST['action']) && $_POST['action'] == 'add') {
-//     addStudent();
-// }
+if (isset($_POST['action']) && $_POST['action'] == 'add') {
+    addClassAction();
+}

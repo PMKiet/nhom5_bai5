@@ -55,9 +55,13 @@ class StudentModel
         $this->result = $this->conn->query($queryAdd);
 
         if ($this->result === true) {
-            $idAccount = rand(1, 9999) . str_pad($randomId, 4, 0, STR_PAD_LEFT);
+            $idAccount = str_pad($randomId, 4, '0', STR_PAD_LEFT);
             $queryCreateAccount = "INSERT INTO `TaiKhoan`(`ma_tai_khoan`,`ten_tai_khoan`, `mat_khau`,`f_ma_quyen`) VALUES ('$idAccount' ,'$id','123@', '3')";
             $this->conn->query($queryCreateAccount);
+        }
+        if ($this->result === true) {
+            $queryAddId = "UPDATE  `SinhVien` SET f_ma_tai_khoan = '$idAccount' WHERE ma_sinh_vien = '$id'";
+            $this->result = $this->conn->query($queryAddId);
         }
 
         return $this->result;

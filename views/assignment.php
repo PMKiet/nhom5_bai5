@@ -32,7 +32,7 @@ $listIdAndNameCourse = listIdAndNameCourseAction();
             //lọc mảng 2 chiều theo từ khóa
             if (!empty($keyword)) {
                 $filter = array_filter($listAssignment, function ($assignment) use ($keyword) {
-                    return (strstr($assignment['ten_giao_vien'], $keyword));
+                    return (stristr($assignment['ten_giao_vien'], $keyword));
                 });
             }
         }

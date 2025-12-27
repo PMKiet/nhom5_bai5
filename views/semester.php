@@ -29,7 +29,7 @@ $listSemester = listSemesterAction();
             if (!empty($keyword)) {
                 $filter = array_filter($listSemester, function ($semester) use ($keyword) {
                     // return ($class['ten_lop_hoc'] == $keyword);
-                    return (strstr($semester['ten_hoc_ky'], $keyword));
+                    return (stristr($semester['ten_hoc_ky'], $keyword));
                 });
             }
         }

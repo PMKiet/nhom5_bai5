@@ -44,7 +44,7 @@ function openFormEdit(id, tenSinhVien, diaChi, listIdClass) {
         opts.forEach(element => { 
             select.removeChild(element);
         });
-    } 
+    }
     listIdClass.map(e => {
         let opt = document.createElement("option");
         opt.value = e.ma_lop_hoc;

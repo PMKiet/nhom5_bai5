@@ -30,7 +30,7 @@ $listIdAndNameClass = listIdAndNameClassAction();
             //lọc mảng 2 chiều theo từ khóa
             if (!empty($keyword)) {
                 $filter = array_filter($listStudent, function ($student) use ($keyword) {
-                    return (strstr($student['ten_sinh_vien'], $keyword));
+                    return (stristr($student['ten_sinh_vien'], $keyword));
                 });
             }
         }

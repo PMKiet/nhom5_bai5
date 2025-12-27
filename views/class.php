@@ -29,7 +29,7 @@ $listClass = listClassAction();
             if (!empty($keyword)) {
                 $filter = array_filter($listClass, function ($class) use ($keyword) {
                     // return ($class['ten_lop_hoc'] == $keyword);
-                    return (strstr($class['ten_lop_hoc'], $keyword));
+                    return (stristr($class['ten_lop_hoc'], $keyword));
                 });
             }
         }

@@ -16,10 +16,11 @@ function updateStudent()
         $id = $_POST['student-id-edit'] ?? '';
         $name = $_POST['student-name-edit'] ?? '';
         $aaddress = $_POST['student-address-edit'] ?? '';
+        $idClass = $_POST['student-idClass-edit'] ?? '';
 
         // if ($name !== "" && $aaddress !== "") {
         $studentModel = new StudentModel();
-        $studentModel->updateStudent($id, $name, $aaddress);
+        $studentModel->updateStudent($id, $name, $aaddress, $idClass);
 
         header('location: ' . BASE_URL . '/views/student');
         // } else {

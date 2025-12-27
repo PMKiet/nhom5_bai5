@@ -5,8 +5,10 @@
 
 <?php
 require __DIR__ . '../../controllers/StudentController.php';
+require __DIR__ . '../../controllers/classController.php';
 // $controller = geta;
 $listStudent = listUserAction();
+$listIdClass = listIdClassAction();
 ?>
 
 <div>
@@ -68,9 +70,10 @@ $listStudent = listUserAction();
                                                         , '<?php echo $row['dia_chi'] ?>')">
                                 Xem</span>
                             <span class="th-icon th-icon-edit"
-                                onclick="openFormEdit('<?php echo $row['ma_sinh_vien'] ?>'
-                                                        ,'<?php echo $row['ten_sinh_vien'] ?>'
-                                                        , '<?php echo $row['dia_chi'] ?>')">
+                                onclick='openFormEdit("<?php echo $row["ma_sinh_vien"] ?>"
+                                                        ,"<?php echo $row["ten_sinh_vien"] ?>"
+                                                        , "<?php echo $row["dia_chi"] ?>"
+                                                        , <?php echo json_encode($listIdClass) ?>)'>
                                 Sửa</span>
                             <span class="th-icon th-icon-delete"
                                 onclick="openFormDelete('<?php echo $row['ma_sinh_vien'] ?>'
@@ -82,6 +85,9 @@ $listStudent = listUserAction();
             </tbody>
         </table>
     </section>
+    <div>
+        <!-- <?php echo print_r($listClass) ?> -->
+    </div>
 </div>
 
 <!-- form xem sinh vieen -->
@@ -90,7 +96,7 @@ $listStudent = listUserAction();
         <h3>Xem sinh viên</h3>
         <p><span>Mã sinh viên:</span> <strong id="student-id"></strong></p>
         <p><span>Tên sinh viên:</span>
-            < id="student-name"></>
+            <strong id="student-name"></strong>
         </p>
         <p><span>Địa chỉ:</span> <strong id="student-address"></strong></p>
         <p><span>Mã lớp:</span><strong id="student-class-id"></strong></p>
@@ -106,6 +112,10 @@ $listStudent = listUserAction();
         <p><span>Mã sinh viên:</span><input id="student-id-edit" name="student-id-edit" readonly /></p>
         <p><span>Tên sinh viên:</span><input id="student-name-edit" name="student-name-edit" /></p>
         <p><span>Địa chỉ:</span> <input id="student-address-edit" name="student-address-edit" /></p>
+        <p><span>Lớp:</span>
+            <select name="student-idClass-edit" id="student-idClass-edit">
+            </select>
+        </p>
         <button type="submit" class="btn">Cập nhật</button>
         <button type="button" class="btn close" onclick="closePopupEdit()">Đóng</button>
     </div>
@@ -129,13 +139,13 @@ $listStudent = listUserAction();
     <div class="modal-content">
         <h3>Thêm sinh viên</h3>
         <!-- <p>Mã sinh viên: <input id="student-id-delete" name="student-id-delete" readonly /></p> -->
-        <p><span>Tên sinh viên:</span> <input id="student-name-add" name="student-name-add" /></p>
-        <p><span>Địa chỉ:</span> <input id="student-address-add" name="student-address-add" /></p>
-        <p><span>Ngày sinh:</span> <input type="date" id="student-birh-add" name="student-birh-add" /></p>
+        <p><span>Tên sinh viên:</span> <input class="input-form" id="student-name-add" name="student-name-add" require /></p>
+        <p><span>Địa chỉ:</span> <input class="input-form" id="student-address-add" name="student-address-add" require /></p>
+        <p><span>Ngày sinh:</span> <input class="input-form" type="date" id="student-birh-add" name="student-birh-add" require /></p>
 
-        <button type="submit" class="btn">Xác nhận thêm</button>
+        <button type="submit" class="btn add-student">Xác nhận thêm</button>
         <button type="button" class="btn close" onclick="closePopup()">Đóng</button>
     </div>
 </form>
 
-<script src="../public/assets/js/popupForm.js"></script>
+<script src="../public/assets/js/popupFormStudent.js"></script>

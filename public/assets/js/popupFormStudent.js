@@ -3,13 +3,13 @@ function closePopup() {
         document.getElementById("popupForm-view").style.display = "none"; 
     }
     if(document.getElementById("popupForm-edit")) { 
-    document.getElementById("popupForm-edit").style.display = "none"; 
+        document.getElementById("popupForm-edit").style.display = "none";
     }
     if(document.getElementById("popupForm-delete")) { 
-    document.getElementById("popupForm-delete").style.display = "none";
+        document.getElementById("popupForm-delete").style.display = "none";
     }
     if(document.getElementById("popupForm-add")) { 
-    document.getElementById("popupForm-add").style.display = "none";
+        document.getElementById("popupForm-add").style.display = "none";
     }
 }
 
@@ -27,12 +27,32 @@ function closePopupEdit() {
     document.getElementById("popupForm-edit").style.display = "none";
 }
 
-function openFormEdit(id, tenSinhVien, diaChi) {
+function openFormEdit(id, tenSinhVien, diaChi, listIdClass) {
+    
+    
     document.getElementById("popupForm-edit").style.display = "block";
 
     document.getElementById("student-id-edit").value = id; 
     document.getElementById("student-name-edit").value = tenSinhVien; 
     document.getElementById("student-address-edit").value = diaChi; 
+
+    let select = document.getElementById('student-idClass-edit');
+    let opts = document.querySelectorAll('option');
+    
+    //remove toàn bộ option đã tồn tại
+    if(opts) {
+        opts.forEach(element => { 
+            select.removeChild(element);
+        });
+    }
+    
+    select.removeChild;
+    listIdClass.map(e => {
+        let opt = document.createElement("option");
+        opt.value = e.ma_lop_hoc;
+        opt.textContent = e.ma_lop_hoc;
+        select.appendChild(opt);
+    });
 }
 
 function openFormDelete(id, tenSinhVien) {
@@ -47,3 +67,6 @@ function openFormAdd() {
 
     
 }
+
+
+// ==================================================================================

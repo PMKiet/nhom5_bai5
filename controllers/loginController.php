@@ -31,7 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $role = $userModel->getRoleByUser($user);
 
                 $_SESSION['role'] = $role['ten_quyen'];
-                header('location: ' . BASE_URL . '/');
+                if ($role['ten_quyen'] === 'admin') {
+                    header('location: ' . BASE_URL . '/views/student');
+                } else {
+                    header('location: ' . BASE_URL . '/');
+                }
             } else {
                 $error = 'Tài khoản hoặc mật khẩu không đúng';
             }

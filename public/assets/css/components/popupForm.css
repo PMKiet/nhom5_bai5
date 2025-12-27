@@ -18,7 +18,7 @@
 }
 
 
-.modal-content input{
+.modal-content input, .modal-content #student-idClass-edit{
     width: 20rem;
     padding: 10px;
     outline: none;

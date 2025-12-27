@@ -24,9 +24,9 @@ class StudentModel
     }
 
     //=========
-    public function updateStudent($studentId, $studentName, $studentAddress)
+    public function updateStudent($studentId, $studentName, $studentAddress, $idClass)
     {
-        $queryUpdate = "UPDATE SinhVien SET ten_sinh_vien = '$studentName', dia_chi = '$studentAddress' WHERE ma_sinh_vien = '$studentId'";
+        $queryUpdate = "UPDATE SinhVien SET ten_sinh_vien = '$studentName', dia_chi = '$studentAddress', f_ma_lop_hoc = '$idClass' WHERE ma_sinh_vien = '$studentId'";
         echo $queryUpdate;
         return $this->result = $this->conn->query($queryUpdate);
     }
@@ -36,7 +36,12 @@ class StudentModel
     {
         $queryDelete = "DELETE FROM sinhvien WHERE ma_sinh_vien = '$studentId'";
         echo $queryDelete;
-        return $this->result = $this->conn->query($queryDelete);
+        $this->result = $this->conn->query($queryDelete);
+        if ($this->result === true) {
+            $queryDeleteAccount = "DELETE FROM TaiKhoan WHERE ten_tai_khoan = '$studentId'";
+            $this->conn->query($queryDeleteAccount);
+        }
+        return $this->result;
     }
 
     //=========
@@ -45,8 +50,16 @@ class StudentModel
         $randomId = rand(1, 9999);
         $autoFillZero = str_pad($randomId, 4, 0, STR_PAD_LEFT); //tự động thêm 0 cho đủ 4 số
         $id = "SV" . date("y") . $autoFillZero; // date("y") lấy 2 số cuối của năm
-        $queryDelete = "INSERT INTO `sinhvien`(`ma_sinh_vien`,`ten_sinh_vien`, `ngay_sinh`, `dia_chi`) VALUES ('$id' ,'$studentName','$studentBirh','$studentAddress')";
-        echo $queryDelete;
-        return $this->result = $this->conn->query($queryDelete);
+        $queryAdd = "INSERT INTO `sinhvien`(`ma_sinh_vien`,`ten_sinh_vien`, `ngay_sinh`, `dia_chi`) VALUES ('$id' ,'$studentName','$studentBirh','$studentAddress')";
+
+        $this->result = $this->conn->query($queryAdd);
+
+        if ($this->result === true) {
+            $idAccount = rand(1, 9999) . str_pad($randomId, 4, 0, STR_PAD_LEFT);
+            $queryCreateAccount = "INSERT INTO `TaiKhoan`(`ma_tai_khoan`,`ten_tai_khoan`, `mat_khau`,`f_ma_quyen`) VALUES ('$idAccount' ,'$id','123@', '3')";
+            $this->conn->query($queryCreateAccount);
+        }
+
+        return $this->result;
     }
 }

@@ -56,6 +56,15 @@ $role = $_SESSION['role'];
                         </a>
                     </li>
                 <?php endif ?>
+
+                <?php if ($role == 'admin'): ?>
+                    <li>
+                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <a href="<?= BASE_URL ?>/views/semester">
+                            Học kỳ
+                        </a>
+                    </li>
+                <?php endif ?>
             </ul>
         </div>
 

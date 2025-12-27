@@ -28,6 +28,9 @@ switch ($finalPath) {
     case '/views/assignment':
         $content = __DIR__ . '/views/assignment.php';
         break;
+    case '/views/semester':
+        $content = __DIR__ . '/views/semester.php';
+        break;
 }
 
 ?>

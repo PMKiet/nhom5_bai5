@@ -44,31 +44,32 @@ function openFormEdit(maPhanCong
     document.getElementById("assignment-id-edit").value = maPhanCong;
     document.getElementById("assignment-numberOfLession-edit").value = soTiet;
 
-    let selectClass = document.getElementById('assignment-class-edit');
-    let optsClass = document.querySelectorAll('.class_opt');
+
+    let selectClassEdit = document.getElementById('assignment-class-edit');
+    let optsClass = document.querySelectorAll('.class_opt-edit');
     
     //remove toàn bộ option đã tồn tại
     if(optsClass) {
         optsClass.forEach(element => { 
-            selectClass.removeChild(element);
+            selectClassEdit.removeChild(element);
         });
     }
-    if(selectClass) {
+    if(selectClassEdit) {
         listIdAndNameClass.forEach(element => {
             let opt = document.createElement('option');
             if(tenLopHoc === element.ten_lop_hoc) {
                 opt.setAttribute('selected', true);
             }
-            opt.classList.add('class_opt');
+            opt.classList.add('class_opt-edit');
             opt.value = element.ma_lop_hoc;
             opt.textContent = element.ten_lop_hoc;
-            selectClass.appendChild(opt);
+            selectClassEdit.appendChild(opt);
         });
     }
 
     // select course
     let selectCourse = document.getElementById('assignment-course-edit');
-    let optsCourse = document.querySelectorAll('.course_opt');
+    let optsCourse = document.querySelectorAll('.course_opt-edit');
     //remove toàn bộ option đã tồn tại
     if(optsCourse) {
         optsCourse.forEach(element => { 
@@ -78,7 +79,7 @@ function openFormEdit(maPhanCong
     if(selectCourse) {
         listIdAndNameCourse.forEach(element => {
             let opt = document.createElement('option');
-            opt.classList.add('course_opt');
+            opt.classList.add('course_opt-edit');
             if(tenHocPhan === element.ten_hoc_phan) {
                 opt.setAttribute('selected', true);
             }
@@ -91,7 +92,7 @@ function openFormEdit(maPhanCong
 
      // select teacher
     let selectTeacher = document.getElementById('assignment-teacher-edit');
-    let optsTeacher = document.querySelectorAll('.teacher_opt');
+    let optsTeacher = document.querySelectorAll('.teacher_opt-edit');
     //remove toàn bộ option đã tồn tại
     if(optsTeacher) {
         optsTeacher.forEach(element => { 
@@ -101,7 +102,7 @@ function openFormEdit(maPhanCong
     if(selectTeacher) {
         listIdAndNameTeacher.forEach(element => {
             let opt = document.createElement('option');
-            opt.classList.add('teacher_opt');
+            opt.classList.add('teacher_opt-edit');
             if(tenGiaoVien === element.ten_giao_vien) {
                 opt.setAttribute('selected', true);
             }
@@ -113,7 +114,7 @@ function openFormEdit(maPhanCong
 
      // select semester
     let selectSemester = document.getElementById('assignment-semester-edit');
-    let optsSemester = document.querySelectorAll('.semester_opt');
+    let optsSemester = document.querySelectorAll('.semester_opt-edit');
     //remove toàn bộ option đã tồn tại
     if(optsSemester) {
         optsSemester.forEach(element => { 
@@ -123,7 +124,7 @@ function openFormEdit(maPhanCong
     if(selectSemester) {
         listIdAndNameSemester.forEach(element => {
             let opt = document.createElement('option');
-            opt.classList.add('semester_opt');
+            opt.classList.add('semester_opt-edit');
             if(tenHocKy === element.ten_hoc_ky) {
                 opt.setAttribute('selected', true);
             }

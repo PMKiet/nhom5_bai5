@@ -39,10 +39,11 @@ function addAssignment()
         $classId = $_POST['assignment-class-add'] ?? '';
         $courseId = $_POST['assignment-course-add'] ?? '';
         $semestertId = $_POST['assignment-semester-add'] ?? '';
+        $numberOfLesstion = $_POST['assignment-numberOfLesstion-add'] ?? '';
 
         // if ($name !== "" && $aaddress !== "") {
         $assignmentModal = new AssignmentModal();
-        $assignmentModal->addAssignment($teacherId, $classId, $courseId, $semestertId);
+        $assignmentModal->addAssignment($teacherId, $classId, $courseId, $semestertId, $numberOfLesstion);
 
         header('location: ' . BASE_URL . '/views/assignment');
         // } else {

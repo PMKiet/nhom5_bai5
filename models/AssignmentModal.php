@@ -33,12 +33,12 @@ class AssignmentModal
         return $this->result = $this->conn->query($queryUpdate);
     }
 
-    public function addAssignment($teacherId, $classId, $courseId, $semesterId)
+    public function addAssignment($teacherId, $classId, $courseId, $semesterId, $numberOfLesstion)
     {
         $randomId = rand(1, 9999);
         $autoFillZero = str_pad($randomId, 4, 0, STR_PAD_LEFT); //tự động thêm 0 cho đủ 4 số
         $id = "PC" . date("y") . $autoFillZero; // date("y") lấy 2 số cuối của năm
-        $queryAdd = "INSERT INTO `PhanCongGiangDay`(`ma_phan_cong`, `f_ma_giao_vien`,`f_ma_lop_hoc`, `f_ma_hoc_phan`, `f_ma_hoc_ky`) VALUES ('$id' ,'$teacherId','$classId','$courseId', '$semesterId')";
+        $queryAdd = "INSERT INTO `PhanCongGiangDay`(`ma_phan_cong`, `f_ma_giao_vien`,`f_ma_lop_hoc`, `f_ma_hoc_phan`, `f_ma_hoc_ky`, `so_tiet`) VALUES ('$id' ,'$teacherId','$classId','$courseId', '$semesterId', '$numberOfLesstion')";
 
         return $this->result = $this->conn->query($queryAdd);
     }

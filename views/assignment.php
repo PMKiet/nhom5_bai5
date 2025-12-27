@@ -198,6 +198,10 @@ $listIdAndNameSemester = listIdAndNameSemesterAction();
             <span>Tên học kỳ:</span>
             <select id="assignment-semester-add" name="assignment-semester-add"></select>
         </p>
+        <p>
+            <span>Số tiết:</span>
+            <input id="assignment-numberOfLesstion-add" name="assignment-numberOfLesstion-add"></input>
+        </p>
         <!-- <p><span>Địa chỉ:</span> <input id="student-address-edit" name="student-address-edit" /></p> -->
         <button type="submit" class="btn">Xác nhận thêm</button>
         <button type="button" class="btn close" onclick="closePopup()">Đóng</button>

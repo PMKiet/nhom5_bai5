@@ -9,6 +9,17 @@ function listUserAction()
     return $listStudent;
 }
 
+function studentByIdAccount()
+{
+    if (isset($_SESSION['idUser'])) {
+        $idAccount = $_SESSION['idUser'];
+        echo $idAccount;
+        $studentModel = new StudentModel();
+        $student = $studentModel->getStudentByIdAccount($idAccount);
+        return $student;
+    }
+}
+
 function updateStudent()
 {
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {

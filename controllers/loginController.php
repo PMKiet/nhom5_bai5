@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['username'] = $username; // dùng để lưu đăng nhập
                 $role = $userModel->getRoleByUser($user);
 
+                $_SESSION['idUser'] = $user['ma_tai_khoan'];
                 $_SESSION['role'] = $role['ten_quyen'];
                 if ($role['ten_quyen'] === 'admin') {
                     header('location: ' . BASE_URL . '/views/student');

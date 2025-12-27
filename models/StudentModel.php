@@ -6,6 +6,7 @@ class StudentModel
     private $conn;
     private $result;
     private $listStudent = null;
+    private $student = null;
 
     public function __construct()
     {
@@ -15,12 +16,21 @@ class StudentModel
     //=========
     public function getAllStudent()
     {
-
         $queryGetAllStudent = "SELECT * FROM SinhVien";
         $this->result = $this->conn->query($queryGetAllStudent);
         $this->listStudent = $this->result->fetch_all(MYSQLI_ASSOC); // lấy toàn bô user, fetch_assoc() chỉ lấy 1 dòng di nhất
 
         return $this->listStudent;
+    }
+
+    //=========
+    public function getStudentByIdAccount($idAccount)
+    {
+        $queryGetStudentByIdAccount = "SELECT * FROM SinhVien WHERE f_ma_tai_khoan = '$idAccount'";
+        $this->result = $this->conn->query($queryGetStudentByIdAccount);
+        $this->student = $this->result->fetch_assoc(); // lấy toàn bô user, fetch_assoc() chỉ lấy 1 dòng di nhất
+
+        return $this->student;
     }
 
     //=========

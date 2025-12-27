@@ -1,0 +1,69 @@
+.profile-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 60rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eaeaea;
+    margin: 10rem auto 0;
+}
+        
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    font-weight: 600;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.info-row:hover {
+    background-color: #f9f9f9;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #2c3e50;
+    width: 150px;
+    min-width: 150px;
+}
+
+.info-value {
+    color: #555;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+/* Màu sắc riêng cho từng loại thông tin */
+.student-id .info-value {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.student-name .info-value {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+.student-dob .info-value {
+    color: #27ae60;
+}
+
+.student-address .info-value {
+    color: #8e44ad;
+}
+
+.student-class .info-value {
+    color: #3498db;
+    font-weight: 600;
+}

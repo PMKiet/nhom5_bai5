@@ -21,6 +21,10 @@
 /* student */
 @import url("./student.css");
 
+/* for student role */
+@import url("./studentProfile.css");
+
 .hidden {
     display: none;
 }
+

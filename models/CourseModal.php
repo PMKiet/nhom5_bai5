@@ -6,6 +6,7 @@ class CourseModal
     private $conn;
     private $result;
     private $listCourse = null;
+    private $listIdAndNameCourse = null;
 
     public function __construct()
     {
@@ -19,6 +20,15 @@ class CourseModal
         $this->listCourse = $this->result->fetch_all(MYSQLI_ASSOC);
 
         return $this->listCourse;
+    }
+
+    function getIdAndNameCourse()
+    {
+        $queryGetCourse = "SELECT ma_hoc_phan, ten_hoc_phan FROM HocPhan";
+        $this->result = $this->conn->query($queryGetCourse);
+        $this->listIdAndNameCourse = $this->result->fetch_all(MYSQLI_ASSOC);
+
+        return $this->listIdAndNameCourse;
     }
 
 

@@ -9,10 +9,10 @@ function listClassAction()
     return $listClass;
 }
 
-function listIdClassAction()
+function listIdAndNameClassAction()
 {
     $classModal = new ClassModal();
-    $listIdClass = $classModal->getIdClass();
+    $listIdClass = $classModal->getIdAndNameClass();
     return $listIdClass;
 }
 

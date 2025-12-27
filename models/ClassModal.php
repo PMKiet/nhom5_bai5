@@ -24,9 +24,9 @@ class ClassModal
         return $this->listClass;
     }
 
-    public function getIdClass()
+    public function getIdAndNameClass()
     {
-        $queryGetIdClass = "SELECT ma_lop_hoc FROM LopHoc";
+        $queryGetIdClass = "SELECT ma_lop_hoc, ten_lop_hoc FROM LopHoc";
         $this->result = $this->conn->query($queryGetIdClass);
         $this->listIdClass = $this->result->fetch_all(MYSQLI_ASSOC);
 

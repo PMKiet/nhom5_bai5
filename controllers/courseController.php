@@ -10,6 +10,14 @@ function listCourseAction()
     return $listCourse;
 }
 
+function listIdAndNameCourseAction()
+{
+    $courseModal = new CourseModal();
+    $listIdAndNameCourse = $courseModal->getIdAndNameCourse();
+
+    return $listIdAndNameCourse;
+}
+
 function updateCourseAction()
 {
     $courseModal = new CourseModal();

@@ -8,7 +8,7 @@ require __DIR__ . '../../controllers/StudentController.php';
 require __DIR__ . '../../controllers/classController.php';
 // $controller = geta;
 $listStudent = listUserAction();
-$listIdClass = listIdClassAction();
+$listIdAndNameClass = listIdAndNameClassAction();
 ?>
 
 <div>
@@ -73,7 +73,7 @@ $listIdClass = listIdClassAction();
                                 onclick='openFormEdit("<?php echo $row["ma_sinh_vien"] ?>"
                                                         ,"<?php echo $row["ten_sinh_vien"] ?>"
                                                         , "<?php echo $row["dia_chi"] ?>"
-                                                        , <?php echo json_encode($listIdClass) ?>)'>
+                                                        , <?php echo json_encode($listIdAndNameClass) ?>)'>
                                 Sửa</span>
                             <span class="th-icon th-icon-delete"
                                 onclick="openFormDelete('<?php echo $row['ma_sinh_vien'] ?>'

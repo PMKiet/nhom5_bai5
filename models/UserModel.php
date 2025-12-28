@@ -37,11 +37,15 @@ class UserModel
         return $this->role;
     }
 
-    public function getCurrentUser($maTaiKhoan)
+    public function getCurrentUser($maTaiKhoan, $tenQuyen)
     {
         // if (isset($_SESSION['idUser'])) {
         // $maTaiKhoan = $_SESSION['ma_tai_khoan'];
-        $queryFindCurrentUser = "SELECT * FROM SinhVien WHERE f_ma_tai_khoan = '$maTaiKhoan'";
+        if ($tenQuyen === 'student') {
+            $queryFindCurrentUser = "SELECT * FROM SinhVien WHERE f_ma_tai_khoan = '$maTaiKhoan'";
+        } else if ($tenQuyen === 'teacher') {
+            $queryFindCurrentUser = "SELECT * FROM GiaoVien WHERE f_ma_tai_khoan = '$maTaiKhoan'";
+        }
         $this->result = $this->conn->query($queryFindCurrentUser);
         $this->currentUser = $this->result->fetch_assoc();
         // }

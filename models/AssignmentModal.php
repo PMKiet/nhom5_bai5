@@ -5,6 +5,7 @@ class AssignmentModal
 {
     private $conn;
     private $result;
+    private $assignmentByTeacherId;
     private $listAssignment;
 
     function __construct()
@@ -24,6 +25,21 @@ class AssignmentModal
         $this->listAssignment = $this->result->fetch_all(MYSQLI_ASSOC);
 
         return $this->listAssignment;
+    }
+
+    function getAssignmentByTeacherId($maGiaoVien)
+    {
+        $querySelect = "SELECT ma_phan_cong, f_ma_giao_vien, f_ma_lop_hoc, f_ma_hoc_phan, f_ma_hoc_ky, ten_giao_vien, ten_lop_hoc, ten_hoc_phan, ten_hoc_ky, so_tiet FROM phanconggiangday  
+            INNER JOIN giaovien ON phanconggiangday.f_ma_giao_vien = giaovien.ma_giao_vien 
+            INNER JOIN lophoc ON phanconggiangday.f_ma_lop_hoc = lophoc.ma_lop_hoc 
+            INNER JOIN hocphan ON phanconggiangday.f_ma_hoc_phan = hocphan.ma_hoc_phan 
+            INNER JOIN hocky ON phanconggiangday.f_ma_hoc_ky = hocky.ma_hoc_ky 
+            WHERE f_ma_giao_vien =  '$maGiaoVien'";
+
+        $this->result = $this->conn->query($querySelect);
+        $this->assignmentByTeacherId = $this->result->fetch_all(MYSQLI_ASSOC);
+
+        return $this->assignmentByTeacherId;
     }
 
     function updateAssignment($teacherId, $classId, $courseId, $semesterId, $assignmentId, $numberOfLession)

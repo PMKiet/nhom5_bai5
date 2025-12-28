@@ -9,6 +9,15 @@ function listAssignmentAction()
     return $listAssignment;
 }
 
+function assignmentByTeacherIdAction()
+{
+    $assignment = new AssignmentModal();
+
+    $idTeacher = $_SESSION['idTeacher'];
+    $assignment = $assignment->getAssignmentByTeacherId($idTeacher);
+    return $assignment;
+}
+
 function updateAssignment()
 {
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,7 +48,7 @@ function addAssignment()
         $classId = $_POST['assignment-class-add'] ?? '';
         $courseId = $_POST['assignment-course-add'] ?? '';
         $semestertId = $_POST['assignment-semester-add'] ?? '';
-        $numberOfLesstion = $_POST['assignment-numberOfLesstion-add'] ?? '';
+        $numberOfLesstion = isset($_POST['assignment-numberOfLesstion-add']) ?? 90;
 
         // if ($name !== "" && $aaddress !== "") {
         $assignmentModal = new AssignmentModal();

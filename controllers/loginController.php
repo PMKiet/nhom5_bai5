@@ -29,17 +29,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($username === $user['ten_tai_khoan'] && $password === $user['mat_khau']) {
                 $_SESSION['username'] = $username; // dùng để lưu đăng nhập
                 $role = $userModel->getRoleByUser($user);
+
+                if ($role['ten_quyen'] === 'student' || $role['ten_quyen'] === 'teacher') {
+                    $currentUser =  $userModel->getCurrentUser($user['ma_tai_khoan'], $role['ten_quyen']);
+                }
                 if ($role['ten_quyen'] === 'student') {
-                    $currentUser =  $userModel->getCurrentUser($user['ma_tai_khoan']);
+                    $_SESSION['idClassByStudent'] =  $currentUser['f_ma_lop_hoc'];
+                }
+                if ($role['ten_quyen'] === 'teacher') {
+                    $_SESSION['idTeacher'] =  $currentUser['ma_giao_vien'];
                 }
 
+                // $_SESSION['currentUser'] = $currentUser;
                 $_SESSION['idUser'] = $user['ma_tai_khoan'];
-                $_SESSION['idClassByStudent'] =  $currentUser['f_ma_lop_hoc'];
                 $_SESSION['role'] = $role['ten_quyen'];
+
                 if ($role['ten_quyen'] === 'admin') {
                     header('location: ' . BASE_URL . '/views/student');
                 } else if ($role['ten_quyen'] === 'student') {
                     header('location: ' . BASE_URL . '/views/studentprofile');
+                } else if ($role['ten_quyen'] === 'teacher') {
+                    header('location: ' . BASE_URL . '/views/teacherprofile');
                 }
             } else {
                 $error = 'Tài khoản hoặc mật khẩu không đúng';

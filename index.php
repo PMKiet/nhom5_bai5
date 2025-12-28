@@ -74,6 +74,23 @@ switch ($finalPath) {
             exit();
         }
         break;
+
+    case '/views/teacherprofile':
+        if ($role === 'teacher') {
+            $content = __DIR__ . '/views/teacherProfile.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
+        break;
+    case '/views/teacherassignment':
+        if ($role === 'teacher') {
+            $content = __DIR__ . '/views/assignmentForTeacherRole.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
+        break;
 }
 
 ?>

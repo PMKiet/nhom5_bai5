@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '../../controllers/studentController.php';
 $student =  studentByIdAccount();
-echo $_SESSION['idUser'];
 
 ?>
 

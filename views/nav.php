@@ -50,7 +50,7 @@ $role = $_SESSION['role'];
                     </li>
                 <?php endif ?>
 
-                <?php if ($role == 'admin' || $role == 'teacher'): ?>
+                <?php if ($role == 'admin'): ?>
                     <li>
                         <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
                         <a href="<?= BASE_URL ?>/views/assignment">
@@ -85,6 +85,25 @@ $role = $_SESSION['role'];
                         <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
                         <a href="<?= BASE_URL ?>/views/courseforstudent">
                             Học phần
+                        </a>
+                    </li>
+                <?php endif ?>
+
+                <!-- chỉ giáo vien mới xem -->
+                <?php if ($role == 'teacher'): ?>
+                    <li>
+                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <a href="<?= BASE_URL ?>/views/teacherprofile">
+                            Giáo viên
+                        </a>
+                    </li>
+                <?php endif ?>
+                <!-- chỉ giáo vien mới xem -->
+                <?php if ($role == 'teacher'): ?>
+                    <li>
+                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <a href="<?= BASE_URL ?>/views/teacherassignment">
+                            Phân công giảng dạy
                         </a>
                     </li>
                 <?php endif ?>

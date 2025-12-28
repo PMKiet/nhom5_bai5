@@ -1,31 +1,27 @@
 <?php
-// Include popup.php để popup có thể hoạt động trong file này
-// include './views/popupForm.php';
-?>
+require __DIR__ . '../../controllers/assignmentController.php';
 
-<?php
-require __DIR__ . '../../controllers/courseController.php';
-// $controller = geta;
-$listCourse = listCourseByClassId() ?? [];
+$assignment = assignmentByTeacherIdAction();
+
 ?>
 
 <div>
     <div class="student-header">
         <form method="GET" action="" class="studen-search inp" style="margin-top: 2rem;">
             <img src="../public/assets/img/Vector.png" alt="">
-            <input type="text" name="search" placeholder="Tìm học phần.">
+            <input type="text" name="search" placeholder="Tìm học phân công teo lớp học.">
             <button class="btn search-student">Tìm</button>
         </form>
 
         <?php
-        $filter = $listCourse;
+        $filter = $assignment;
         $keyword = "";
         if (isset($_GET['search'])) {
             $keyword = $_GET['search'];
             //lọc mảng 2 chiều theo từ khóa
             if (!empty($keyword)) {
-                $filter = array_filter($listCourse, function ($course) use ($keyword) {
-                    return (strstr($course['ten_hoc_phan'], $keyword));
+                $filter = array_filter($assignment, function ($e) use ($keyword) {
+                    return (strstr($e['ten_lop_hoc'], $keyword));
                 });
             }
         }
@@ -36,17 +32,21 @@ $listCourse = listCourseByClassId() ?? [];
         <table cellpacing='0'>
             <thead>
                 <tr>
-                    <th>Mã học phấn</th>
+                    <th>Tên giáo viên</th>
+                    <th>Tên lớp học</th>
                     <th>Tên học phần</th>
-                    <th>Đơn vị học trình</th>
+                    <th>Học kỳ</th>
+                    <th>Số tiết</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($filter as $row) { ?>
                     <tr>
-                        <th><?php echo $row['ma_hoc_phan'] ?></th>
+                        <th><?php echo $row['ten_giao_vien'] ?></th>
+                        <th><?php echo $row['ten_lop_hoc'] ?></th>
                         <th><?php echo $row['ten_hoc_phan'] ?></th>
-                        <th><?php echo $row['don_vi_hoc_trinh'] ?></th>
+                        <th><?php echo $row['ten_hoc_ky'] ?></th>
+                        <th><?php echo $row['so_tiet'] ?></th>
                     <?php } ?>
             </tbody>
         </table>

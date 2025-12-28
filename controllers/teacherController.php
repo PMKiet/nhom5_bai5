@@ -16,6 +16,16 @@ function listIdAndNameTeacherAction()
     return $listIdAndNameTeacher;
 }
 
+function teacherByIdAccount()
+{
+    if (isset($_SESSION['idUser'])) {
+        $idAccount = $_SESSION['idUser'];
+        $teacherModal = new TeacherModal();
+        $teacher = $teacherModal->getTeacherByIdAccount($idAccount);
+        return $teacher;
+    }
+}
+
 function updateTeacherAction()
 {
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -49,6 +49,14 @@ switch ($finalPath) {
             exit();
         }
         break;
+    case '/views/plan':
+        if ($role === 'admin') {
+            $content = __DIR__ . '/views/plan.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
+        break;
     case '/views/semester':
         if ($role === 'admin') {
             $content = __DIR__ . '/views/semester.php';

@@ -58,6 +58,14 @@ $role = $_SESSION['role'];
                         </a>
                     </li>
                 <?php endif ?>
+                <?php if ($role == 'admin'): ?>
+                    <li>
+                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <a href="<?= BASE_URL ?>/views/plan">
+                            Kế hoạch đào tạo
+                        </a>
+                    </li>
+                <?php endif ?>
 
                 <?php if ($role == 'admin'): ?>
                     <li>

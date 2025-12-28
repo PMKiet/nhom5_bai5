@@ -20,6 +20,18 @@ tbody tr:nth-child(even) {
     background-color: #EBF6FF;
 }
 
+table {
+    margin-top: 1rem;
+}
+
+thead {
+    background-color: #ffcece !important;
+}
+
+thead:hover tr{
+    background-color:unset
+}
+
 tr:hover {
     background-color: #bedff9;
 }

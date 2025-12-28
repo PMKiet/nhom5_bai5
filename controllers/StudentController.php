@@ -13,7 +13,6 @@ function studentByIdAccount()
 {
     if (isset($_SESSION['idUser'])) {
         $idAccount = $_SESSION['idUser'];
-        echo $idAccount;
         $studentModel = new StudentModel();
         $student = $studentModel->getStudentByIdAccount($idAccount);
         return $student;

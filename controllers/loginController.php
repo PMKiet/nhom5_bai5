@@ -29,8 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($username === $user['ten_tai_khoan'] && $password === $user['mat_khau']) {
                 $_SESSION['username'] = $username; // dùng để lưu đăng nhập
                 $role = $userModel->getRoleByUser($user);
+                if ($role['ten_quyen'] === 'student') {
+                    $currentUser =  $userModel->getCurrentUser($user['ma_tai_khoan']);
+                }
 
                 $_SESSION['idUser'] = $user['ma_tai_khoan'];
+                $_SESSION['idClassByStudent'] =  $currentUser['f_ma_lop_hoc'];
                 $_SESSION['role'] = $role['ten_quyen'];
                 if ($role['ten_quyen'] === 'admin') {
                     header('location: ' . BASE_URL . '/views/student');

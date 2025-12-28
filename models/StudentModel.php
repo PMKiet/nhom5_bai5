@@ -26,7 +26,7 @@ class StudentModel
     //=========
     public function getStudentByIdAccount($idAccount)
     {
-        $queryGetStudentByIdAccount = "SELECT * FROM SinhVien WHERE f_ma_tai_khoan = '$idAccount'";
+        $queryGetStudentByIdAccount = "SELECT * FROM SinhVien INNER JOIN LopHoc ON SinhVien.f_ma_lop_hoc = LopHoc.ma_lop_hoc WHERE f_ma_tai_khoan = '$idAccount'";
         $this->result = $this->conn->query($queryGetStudentByIdAccount);
         $this->student = $this->result->fetch_assoc(); // lấy toàn bô user, fetch_assoc() chỉ lấy 1 dòng di nhất
 

@@ -66,6 +66,14 @@ switch ($finalPath) {
             exit();
         }
         break;
+    case '/views/courseforstudent':
+        if ($role === 'student') {
+            $content = __DIR__ . '/views/courseForStudentRole.php';
+        } else {
+            require __DIR__ . '/views/loginPage.php';
+            exit();
+        }
+        break;
 }
 
 ?>

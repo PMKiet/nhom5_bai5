@@ -7,6 +7,7 @@ class UserModel
     private $result;
     private $user = null;
     private $role;
+    private $currentUser;
 
     public function __construct()
     {
@@ -34,5 +35,17 @@ class UserModel
         }
 
         return $this->role;
+    }
+
+    public function getCurrentUser($maTaiKhoan)
+    {
+        // if (isset($_SESSION['idUser'])) {
+        // $maTaiKhoan = $_SESSION['ma_tai_khoan'];
+        $queryFindCurrentUser = "SELECT * FROM SinhVien WHERE f_ma_tai_khoan = '$maTaiKhoan'";
+        $this->result = $this->conn->query($queryFindCurrentUser);
+        $this->currentUser = $this->result->fetch_assoc();
+        // }
+
+        return $this->currentUser;
     }
 }

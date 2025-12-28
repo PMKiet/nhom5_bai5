@@ -20,15 +20,7 @@ $role = $_SESSION['role'];
                     </li>
                 <?php endif ?>
 
-                <!-- chỉ sinh vien mới xem -->
-                <?php if ($role == 'student'): ?>
-                    <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
-                        <a href="<?= BASE_URL ?>/views/studentprofile">
-                            Học sinh
-                        </a>
-                    </li>
-                <?php endif ?>
+
 
                 <!-- chỉ admin mới xem -->
                 <?php if ($role == 'admin'): ?>
@@ -49,7 +41,7 @@ $role = $_SESSION['role'];
                     </li>
                 <?php endif ?>
 
-                <?php if ($role == 'admin' || $role == 'student'): ?>
+                <?php if ($role == 'admin'): ?>
                     <li>
                         <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
                         <a href="<?= BASE_URL ?>/views/course">
@@ -75,8 +67,31 @@ $role = $_SESSION['role'];
                         </a>
                     </li>
                 <?php endif ?>
+
+
+                <!-- chỉ sinh vien mới xem -->
+                <?php if ($role == 'student'): ?>
+                    <li>
+                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <a href="<?= BASE_URL ?>/views/studentprofile">
+                            Học sinh
+                        </a>
+                    </li>
+                <?php endif ?>
+
+                <!-- chỉ sinh vien mới xem -->
+                <?php if ($role == 'student'): ?>
+                    <li>
+                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <a href="<?= BASE_URL ?>/views/courseforstudent">
+                            Học phần
+                        </a>
+                    </li>
+                <?php endif ?>
             </ul>
         </div>
+
+
 
         <a href="<?= BASE_URL ?>/controllers/logout.php" class="logout">
             Đăng xuất

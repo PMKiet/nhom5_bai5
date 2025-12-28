@@ -18,6 +18,17 @@ function listIdAndNameCourseAction()
     return $listIdAndNameCourse;
 }
 
+function listCourseByClassId()
+{
+    if (isset($_SESSION['idClassByStudent'])) {
+        $classId = $_SESSION['idClassByStudent'];
+        $courseModal = new CourseModal();
+        $listCourseByClassId = $courseModal->getCourseByClassId($classId);
+
+        return $listCourseByClassId;
+    }
+}
+
 function updateCourseAction()
 {
     $courseModal = new CourseModal();

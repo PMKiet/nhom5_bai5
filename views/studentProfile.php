@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '../../controllers/studentController.php';
 $student =  studentByIdAccount();
+echo $_SESSION['idUser'];
+
 ?>
 
 <div class="profile-container">
@@ -23,6 +25,6 @@ $student =  studentByIdAccount();
     </div>
     <div class="info-row student-class">
         <span class="info-label">Lớp</span>
-        <span class="info-value">D20CQCN01-B</span>
+        <span class="info-value"><?php echo $student['ten_lop_hoc'] ?></span>
     </div>
 </div>

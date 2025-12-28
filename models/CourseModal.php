@@ -7,6 +7,7 @@ class CourseModal
     private $result;
     private $listCourse = null;
     private $listIdAndNameCourse = null;
+    private $courseByClassId;
 
     public function __construct()
     {
@@ -31,6 +32,13 @@ class CourseModal
         return $this->listIdAndNameCourse;
     }
 
+    function getCourseByClassId($classId)
+    {
+        $queryGetCourseByClassId = "SELECT * FROM `phanconggiangday` INNER JOIN hocphan on f_ma_hoc_phan = hocphan.ma_hoc_phan WHERE phanconggiangday.f_ma_lop_hoc = '$classId'";
+        $this->result = $this->conn->query($queryGetCourseByClassId);
+
+        return $this->courseByClassId = $this->result->fetch_all(MYSQLI_ASSOC);
+    }
 
     function updateCourseById($id, $courseName, $courseUnit)
     {

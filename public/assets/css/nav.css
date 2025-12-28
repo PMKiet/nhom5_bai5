@@ -23,6 +23,7 @@
     display: flex;
     align-items: center;
     gap: 1.6rem;
+    border-bottom: .5px solid #343249;
 }
 
 .nav ul li:hover, .logout:hover {
@@ -33,6 +34,13 @@
 .nav ul li a {
     color: var(--text-color-primary);
     text-decoration: none;
+    padding-left: 2rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.nav img {
+    color: white;
 }
 
 .form-login {

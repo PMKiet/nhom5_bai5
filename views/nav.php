@@ -13,7 +13,7 @@ $role = $_SESSION['role'];
                 <!-- chỉ admin mới xem -->
                 <?php if ($role == 'admin'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/student">
                             Học sinh
                         </a>
@@ -25,7 +25,7 @@ $role = $_SESSION['role'];
                 <!-- chỉ admin mới xem -->
                 <?php if ($role == 'admin'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/teacher">
                             Giáo viên
                         </a>
@@ -34,7 +34,7 @@ $role = $_SESSION['role'];
 
                 <?php if ($role == 'admin'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/class">
                             Lớp
                         </a>
@@ -43,7 +43,7 @@ $role = $_SESSION['role'];
 
                 <?php if ($role == 'admin'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/course">
                             Học phần
                         </a>
@@ -52,7 +52,7 @@ $role = $_SESSION['role'];
 
                 <?php if ($role == 'admin'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/assignment">
                             Phân công giảng dạy
                         </a>
@@ -60,7 +60,7 @@ $role = $_SESSION['role'];
                 <?php endif ?>
                 <?php if ($role == 'admin'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/plan">
                             Kế hoạch đào tạo
                         </a>
@@ -69,7 +69,7 @@ $role = $_SESSION['role'];
 
                 <?php if ($role == 'admin'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/semester">
                             Học kỳ
                         </a>
@@ -80,7 +80,7 @@ $role = $_SESSION['role'];
                 <!-- chỉ sinh vien mới xem -->
                 <?php if ($role == 'student'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/studentprofile">
                             Học sinh
                         </a>
@@ -90,7 +90,7 @@ $role = $_SESSION['role'];
                 <!-- chỉ sinh vien mới xem -->
                 <?php if ($role == 'student'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/courseforstudent">
                             Học phần
                         </a>
@@ -100,7 +100,7 @@ $role = $_SESSION['role'];
                 <!-- chỉ giáo vien mới xem -->
                 <?php if ($role == 'teacher'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/teacherprofile">
                             Giáo viên
                         </a>
@@ -109,7 +109,7 @@ $role = $_SESSION['role'];
                 <!-- chỉ giáo vien mới xem -->
                 <?php if ($role == 'teacher'): ?>
                     <li>
-                        <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt="">
+                        <!-- <img src="<?= BASE_URL ?>/public/assets/img/home-2.png" alt=""> -->
                         <a href="<?= BASE_URL ?>/views/teacherassignment">
                             Phân công giảng dạy
                         </a>

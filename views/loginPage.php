@@ -13,7 +13,7 @@
         <form method="POST" action="../controllers/loginController.php" class="form">
             <h2>Đăng nhập</h2>
             <input id="username" type="text" name="username" autocomplete="off" require placeholder="Tên đăng nhập">
-            <input id="password" type="text" name="password" autocomplete="off" require placeholder="Mật khẩu">
+            <input id="password" type="password" name="password" autocomplete="off" require placeholder="Mật khẩu">
             <button type="submit" class="btn ">
                 Đăng nhập
             </button>

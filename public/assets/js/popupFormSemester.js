@@ -46,7 +46,30 @@ function openFormEdit(maHocKy, tenHocKy, batDau, ketThuc) {
 function openFormAdd() {
     document.getElementById("popupForm-add").style.display = "block";
 
-    
+    let name = document.getElementById('semester-name-add');
+    let begin = document.getElementById('semester-begin-add'); 
+    let end = document.getElementById('semester-end-add'); 
+
+    document.querySelector('.add-semester').addEventListener('click', function(e) {
+        if(name.value.trim().length <= 0) {
+            name.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            name.style.borderColor = '#aba7a7';
+        }
+        if(begin.value.trim().length <= 0) {
+            begin.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            begin.style.borderColor = '#aba7a7';
+        }
+        if(end.value.trim().length <= 0) {
+            end.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            end.style.borderColor = '#aba7a7';
+        }
+    })
 }
 
 

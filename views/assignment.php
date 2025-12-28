@@ -184,26 +184,35 @@ $listIdAndNameSemester = listIdAndNameSemesterAction();
         <h3>Thêm phân công giảng dạy</h3>
         <p>
             <span>Tên giáo viên:</span>
-            <select id="assignment-teacher-add" name="assignment-teacher-add"></select>
+            <select id="assignment-teacher-add" name="assignment-teacher-add">
+                <option value="chon" class="n-opt-teacher" selected>Chọn giáo viên</option>
+            </select>
         </p>
         <p>
             <span>Tên lớp:</span>
-            <select id="assignment-class-add" name="assignment-class-add"> </select>
+            <select id="assignment-class-add" name="assignment-class-add">
+                <option value="chon" class="n-opt-class" selected>Chọn Lớp</option>
+            </select>
         </p>
         <p>
             <span>Tên học phần:</span>
-            <select id="assignment-course-add" name="assignment-course-add"></select>
+            <select id="assignment-course-add" name="assignment-course-add">
+                <option value="chon" class="n-opt-course" selected>Chọn học phần</option>
+            </select>
         </p>
         <p>
             <span>Tên học kỳ:</span>
-            <select id="assignment-semester-add" name="assignment-semester-add"></select>
+            <select id="assignment-semester-add" name="assignment-semester-add">
+                <option value="chon" class="n-opt-semester">Chọn giáo viên</option>
+
+            </select>
         </p>
         <p>
             <span>Số tiết:</span>
-            <input id="assignment-numberOfLesstion-add" name="assignment-numberOfLesstion-add"></input>
+            <input id="assignment-numberOfLesstion-add" type="number" name="assignment-numberOfLesstion-add"></input>
         </p>
         <!-- <p><span>Địa chỉ:</span> <input id="student-address-edit" name="student-address-edit" /></p> -->
-        <button type="submit" class="btn">Xác nhận thêm</button>
+        <button type="submit" class="btn add-assignment">Xác nhận thêm</button>
         <button type="button" class="btn close" onclick="closePopup()">Đóng</button>
     </div>
 </form>

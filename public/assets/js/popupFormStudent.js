@@ -62,8 +62,33 @@ function openFormDelete(id, tenSinhVien) {
 
 function openFormAdd() {
     document.getElementById("popupForm-add").style.display = "block";
+    let name = document.getElementById('student-name-add');
+    let address = document.getElementById('student-address-add');
+    let birh = document.getElementById('student-birh-add');
 
-    
+    document.getElementsByClassName('add-student')[0].addEventListener('click', function(e) {
+        
+        if(name.value.trim().length <= 0) {
+            name.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            name.style.borderColor = '#aba7a7';
+        }
+        if(address.value.trim().length <= 0) {
+            address.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            address.style.borderColor = '#aba7a7';
+        }
+
+        if(birh.value.trim().length <= 0) {
+            birh.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            birh.style.borderColor = '#aba7a7';
+        }
+
+    })
 }
 
 

@@ -43,7 +43,23 @@ function openFormEdit(id, tenLopHoc) {
 function openFormAdd() {
     document.getElementById("popupForm-add").style.display = "block";
 
-    
+    let name = document.getElementById('class-name-add');
+    let traning = document.getElementById('class-training-add'); 
+
+    document.querySelector('.add-class').addEventListener('click', function(e) {
+        if(name.value.trim().length <= 0) {
+            name.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            name.style.borderColor = '#aba7a7';
+        }
+        if(traning.value.trim().length <= 0) {
+            traning.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            traning.style.borderColor = '#aba7a7';
+        }
+    })
 }
 
 

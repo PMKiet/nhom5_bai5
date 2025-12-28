@@ -130,7 +130,7 @@ $listSemester = listSemesterAction();
         <p><span>Bắt đầu:</span> <input type="date" class="input-form" id="semester-begin-add" name="semester-begin-add" require /></p>
         <p><span>Kết thúc:</span> <input type="date" class="input-form" id="semester-end-add" name="semester-end-add" require /></p>
 
-        <button type="submit" class="btn add-class">Xác nhận thêm</button>
+        <button type="submit" class="btn add-semester">Xác nhận thêm</button>
         <button type="button" class="btn close" onclick="closePopup()">Đóng</button>
     </div>
 </form>

@@ -34,16 +34,19 @@ function updateSemesterAction()
 
 function addSemesterAction()
 {
-    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-        //lấy username và pass từ method post
-        $name = $_POST['semester-name-add'] ?? '';
-        $begin = $_POST['semester-begin-add'] ?? '';
-        $end = $_POST['semester-end-add'] ?? '';
+    try {
+        if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            //lấy username và pass từ method post
+            $name = $_POST['semester-name-add'] ?? '';
+            $begin = $_POST['semester-begin-add'] ?? '';
+            $end = $_POST['semester-end-add'] ?? '';
 
-        $semesterModal = new SemesterModal();
-        $semesterModal->addSemester($name, $begin, $end);
+            $semesterModal = new SemesterModal();
+            $semesterModal->addSemester($name, $begin, $end);
 
-        header('location: ' . BASE_URL . '/views/semester');
+            header('location: ' . BASE_URL . '/views/semester');
+        }
+    } catch (Exception $e) {
     }
 }
 

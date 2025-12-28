@@ -49,7 +49,23 @@ function openFormDelete(id, tenGiaoVien) {
 function openFormAdd() {
     document.getElementById("popupForm-add").style.display = "block";
 
-    
+    let name = document.getElementById('teacher-name-add');
+    let rank = document.getElementById('teacher-rank-add'); 
+
+    document.querySelector('.add-teacher').addEventListener('click', function(e) {
+        if(name.value.trim().length <= 0) {
+            name.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            name.style.borderColor = '#aba7a7';
+        }
+        if(rank.value.trim().length <= 0) {
+            rank.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            rank.style.borderColor = '#aba7a7';
+        }
+    })
 }
 
 

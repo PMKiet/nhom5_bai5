@@ -44,7 +44,23 @@ function openFormDelete(id, tenSinhVien) {
 function openFormAdd() {
     document.getElementById("popupForm-add").style.display = "block";
 
-    
+    let name = document.getElementById('course-name-add');
+    let unit = document.getElementById('course-unit-add'); 
+
+    document.querySelector('.add-course').addEventListener('click', function(e) {
+        if(name.value.trim().length <= 0) {
+            name.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            name.style.borderColor = '#aba7a7';
+        }
+        if(unit.value.trim().length <= 0) {
+            unit.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            unit.style.borderColor = '#aba7a7';
+        }
+    })
 }
 
 

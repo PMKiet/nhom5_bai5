@@ -120,7 +120,7 @@ $listCourse = listCourseAction();
         <h3>Thêm học phần</h3>
 
         <p><span>Tên học phần:</span> <input class="input-form" id="course-name-add" name="course-name-add" require /></p>
-        <p><span>Đơn vị học trình:</span> <input class="input-form" id="course-unit-add" name="course-unit-add" require /></p>
+        <p><span>Đơn vị học trình:</span> <input class="input-form" type="number" id="course-unit-add" name="course-unit-add" require /></p>
 
         <button type="submit" class="btn add-course">Xác nhận thêm</button>
         <button type="button" class="btn close" onclick="closePopup()">Đóng</button>

@@ -141,7 +141,7 @@ $listTeacher = listTeacherAction();
             </select>
         </p>
 
-        <button type="submit" class="btn add-student">Xác nhận thêm</button>
+        <button type="submit" class="btn add-teacher">Xác nhận thêm</button>
         <button type="button" class="btn close" onclick="closePopup()">Đóng</button>
     </div>
 </form>

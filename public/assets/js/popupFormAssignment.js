@@ -233,6 +233,46 @@ function openFormAdd(listIdAndNameClass
             selectSemester.appendChild(opt);
         });
     }
+
+    /////////////////////
+    let s_course = document.getElementById('assignment-course-add');
+    let s_teacher = document.getElementById('assignment-teacher-add');
+    let s_class = document.getElementById('assignment-class-add');
+    let s_semester = document.getElementById('assignment-semester-add');
+    let s_numberOfLesstion = document.getElementById('assignment-numberOfLesstion-add');
+    
+    document.querySelector('.add-assignment').addEventListener('click', function(e) {
+        if(s_course.value === 'chon') {
+            s_course.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            s_course.style.borderColor = '#aba7a7';
+        }
+        if(s_teacher.value === 'chon') {
+            s_teacher.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            s_teacher.style.borderColor = '#aba7a7';
+        }
+        if(s_class.value === 'chon') {
+            s_class.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            s_class.style.borderColor = '#aba7a7';
+        }
+        if(s_semester.value === 'chon') {
+            s_semester.style.borderColor = 'red';
+            e.preventDefault();
+        } else {
+            s_semester.style.borderColor = '#aba7a7';
+        }
+        if(s_numberOfLesstion.value.trim().length <= 0) {
+            s_numberOfLesstion.style.borderColor = 'red';
+            e.preventDefault();
+        }else {
+            s_numberOfLesstion.style.borderColor = '#aba7a7';
+        }
+    })
 }
 
 

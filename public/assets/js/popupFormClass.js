@@ -5,9 +5,9 @@ function closePopup() {
     if(document.getElementById("popupForm-edit")) { 
     document.getElementById("popupForm-edit").style.display = "none"; 
     }
-    // if(document.getElementById("popupForm-delete")) { 
-    // document.getElementById("popupForm-delete").style.display = "none";
-    // }
+    if(document.getElementById("popupForm-delete")) { 
+    document.getElementById("popupForm-delete").style.display = "none";
+    }
     if(document.getElementById("popupForm-add")) { 
     document.getElementById("popupForm-add").style.display = "none";
     }
@@ -33,12 +33,12 @@ function openFormEdit(id, tenLopHoc) {
     document.getElementById("class-name-edit").value = tenLopHoc;  
 }
 
-// function openFormDelete(id, tenSinhVien) {
-//     document.getElementById("popupForm-delete").style.display = "block";
+function openFormDelete(id, tenLopHoc) {
+    document.getElementById("popupForm-delete").style.display = "block";
 
-//     document.getElementById("student-id-delete").value = id; 
-//     document.getElementById("student-name-delete").value = tenSinhVien;  
-// }
+    document.getElementById("class-id-delete").value = id; 
+    document.getElementById("class-name-delete").value = tenLopHoc;  
+}
 
 function openFormAdd() {
     document.getElementById("popupForm-add").style.display = "block";

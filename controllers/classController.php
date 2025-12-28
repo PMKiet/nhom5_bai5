@@ -34,16 +34,16 @@ function updateClass()
     }
 }
 
-// function deleteStudent()
-// {
-//     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-//         $id = $_POST['student-id-delete'];
+function deleteClass()
+{
+    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['class-id-delete'];
 
-//         $studentModel = new StudentModel();
-//         $studentModel->deleteStudent($id);
-//         header('location: ' . BASE_URL . '/views/student');
-//     }
-// }
+        $classModal = new ClassModal();
+        $classModal->deleteClass($id);
+        header('location: ' . BASE_URL . '/views/class');
+    }
+}
 
 function addClassAction()
 {
@@ -64,9 +64,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'update') {
     updateClass();
 }
 
-// if (isset($_POST['action']) && $_POST['action'] == 'delete') {
-//     deleteStudent();
-// }
+if (isset($_POST['action']) && $_POST['action'] == 'delete') {
+    deleteClass();
+}
 
 
 if (isset($_POST['action']) && $_POST['action'] == 'add') {

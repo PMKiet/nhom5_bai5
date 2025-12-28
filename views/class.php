@@ -63,11 +63,11 @@ $listClass = listClassAction();
                                 onclick="openFormEdit('<?php echo $row['ma_lop_hoc'] ?>'
                                                         ,'<?php echo $row['ten_lop_hoc'] ?>')">
                                 Sửa</span>
-                            <!--
+
                             <span class="th-icon th-icon-delete"
-                                onclick="openFormDelete('<?php echo $row['ma_sinh_vien'] ?>'
-                                                        ,'<?php echo $row['ten_sinh_vien'] ?>')">
-                                Xóa</span> -->
+                                onclick="openFormDelete('<?php echo $row['ma_lop_hoc'] ?>'
+                                                        ,'<?php echo $row['ten_lop_hoc'] ?>')">
+                                Xóa</span>
                         </th>
                     </tr>
                 <?php } ?>
@@ -101,16 +101,16 @@ $listClass = listClassAction();
 </form>
 
 <!-- form xoa sinh vieen -->
-<!-- <form method="POST" action="../controllers/StudentController.php" id="popupForm-delete" class="modal">
+<form method="POST" action="../controllers/classController.php" id="popupForm-delete" class="modal">
     <input type="hidden" name="action" value="delete">
     <div class="modal-content">
-        <h3>Sửa sinh viên</h3>
-        <p><span>Mã sinh viên:</span> <input id="student-id-delete" name="student-id-delete" readonly /></p>
-        <p><span>Tên sinh viên:</span><input id="student-name-delete" name="student-name-delete" /></p>
+        <h3>Xóa Lớp học</h3>
+        <p><span>Mã lớp học:</span> <input id="class-id-delete" name="class-id-delete" readonly /></p>
+        <p><span>Tên lớp học:</span><input id="class-name-delete" name="class-name-delete" /></p>
         <button type="submit" class="btn" style="background-color: red;">Xác nhận xóa</button>
         <button type="button" class="btn close" style="background-color: var(--bg-btn);" onclick="closePopup()">Đóng</button>
     </div>
-</form> -->
+</form>
 
 <!-- form theem sinh vieen -->
 <form method="POST" action="../controllers/classController.php" id="popupForm-add" class="modal">

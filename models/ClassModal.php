@@ -42,17 +42,14 @@ class ClassModal
     }
 
     //=========
-    // public function deleteStudent($studentId)
-    // {
-    //     $queryDelete = "DELETE FROM sinhvien WHERE ma_sinh_vien = '$studentId'";
-    //     echo $queryDelete;
-    //     $this->result = $this->conn->query($queryDelete);
-    //     if ($this->result === true) {
-    //         $queryDeleteAccount = "DELETE FROM TaiKhoan WHERE ten_tai_khoan = '$studentId'";
-    //         $this->conn->query($queryDeleteAccount);
-    //     }
-    //     return $this->result;
-    // }
+    public function deleteClass($classId)
+    {
+        $queryDelete = "DELETE FROM LopHoc WHERE ma_lop_hoc = '$classId'";
+        echo $queryDelete;
+        $this->result = $this->conn->query($queryDelete);
+
+        return $this->result;
+    }
 
     //=========
     public function addClass($classtName, $classTraining)
